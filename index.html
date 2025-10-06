@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CV - Trần Nhật Hà | UX/UI Designer</title>
+  <style>
+    /* ====== RESET NHẸ ====== */
+    * { box-sizing: border-box; }
+    body, h1, h2, p, ul { margin: 0; padding: 0; }
+    ul { list-style: none; }
+
+    /* ====== BODY ====== */
+    body {
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #fffbea;
+      color: #222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding: 40px 20px;
+    }
+
+    /* ====== KHUNG CHÍNH ====== */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 4px solid #facc15; /* khung vàng */
+      box-shadow: 0 14px 40px rgba(0,0,0,0.12);
+      overflow: hidden;
+    }
+
+    /* ====== HEADER (ảnh + tên) ====== */
+    header {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      padding: 28px 40px;
+      border-bottom: 3px solid #facc15;
+      background: linear-gradient(180deg, rgba(250,240,200,0.3), rgba(255,255,255,0));
+    }
+
+    .avatar-wrap {
+      flex: 0 0 160px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 5px solid #facc15;
+      object-fit: cover;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    .avatar:hover {
+      transform: scale(1.06);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    }
+
+    .header-info {
+      flex: 1;
+    }
+
+    .name {
+      font-size: 28px;
+      color: #955b00; /* vàng đậm nâu */
+      letter-spacing: 0.4px;
+      margin-bottom: 6px;
+      transition: color 0.2s ease;
+    }
+
+    .role {
+      font-size: 15px;
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    .contact {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .contact p { opacity: 0.9; }
+
+    .name:hover { color: #ca8a04; }
+
+    /* ====== LAYOUT CHÍNH ====== */
+    .content {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 32px;
+      padding: 28px 40px 40px 40px;
+    }
+
+    /* ====== PHẦN TRÁI (chính) ====== */
+    .main {
+      min-width: 0;
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #ca8a04;
+      font-size: 18px;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #f5d742;
+    }
+
+    p, li {
+      color: #333;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .summary {
+      background: #fff9e6;
+      border-left: 4px solid #facc15;
+      padding: 12px 14px;
+      border-radius: 8px;
+    }
+
+    .project {
+      margin-bottom: 12px;
+    }
+
+    .project .title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .skills-list, .tools-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 10px;
+      margin-top: 8px;
+    }
+
+    .chip {
+      background: #fff7d6;
+      border: 1px solid rgba(250,200,21,0.18);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: #5a3b00;
+    }
+
+    /* ====== PHẦN PHẢI (sidebar) ====== */
+    .aside {
+      background: linear-gradient(180deg, rgba(255,250,230,0.6), rgba(255,255,255,0.4));
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(250,200,21,0.08);
+      height: fit-content;
+    }
+
+    .aside h3 {
+      font-size: 15px;
+      color: #955b00;
+      margin-bottom: 10px;
+    }
+
+    .meta p {
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .hobby-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .hobby-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.03);
+      font-size: 14px;
+    }
+
+    .hobby-emoji {
+      font-size: 18px;
+      width: 28px;
+      text-align: center;
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      padding: 18px 40px;
+      border-top: 1px solid #f5d742;
+      text-align: center;
+      color: #666;
+      font-size: 13px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,250,230,0.2));
+    }
+
+    /* ====== HIỆU ỨNG NHỎ ====== */
+    a { color: inherit; text-decoration: none; }
+    .link { color: #1a73e8; }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 880px) {
+      .content { grid-template-columns: 1fr; padding: 18px 20px 26px 20px; }
+      header { flex-direction: column; gap: 12px; padding: 20px; }
+      .avatar-wrap { order: -1; }
+      .container { border-width: 3px; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <div class="avatar-wrap">
+        <!-- THAY ẢNH Ở ĐÂY: đổi src thành avatar.jpg nếu bạn đặt ảnh trong cùng thư mục -->
+        <img class="avatar" src="https://i.imgur.com/xYwz8XK.png" alt="Ảnh Trần Nhật Hà">
+      </div>
+
+      <div class="header-info">
+        <div class="name" style="font-weight:700;">TRẦN NHẬT HÀ</div>
+        <div class="role">UX/UI Designer — Thiết kế trải nghiệm & giao diện</div>
+        <div class="contact" aria-label="Thông tin liên hệ">
+          <p><strong>Ngày sinh:</strong> 10/09/2005</p>
+          <p><strong>Điện thoại:</strong> 0357 201 354</p>
+          <p><strong>Email:</strong> trannhatha1804@gmail.com</p>
+          <p><strong>Địa chỉ:</strong> Biên Hòa, Đồng Nai</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- ===== LEFT / MAIN ===== -->
+      <div class="main">
+        <section>
+          <h2>Giới thiệu chuyên môn</h2>
+          <div class="summary">
+            <p>Thiết kế giao diện thân thiện, tối ưu trải nghiệm người dùng trên mobile & web. Thành thạo Figma, Adobe XD, có kinh nghiệm làm prototype và test người dùng. Tập trung vào giải pháp thiết kế khả dụng, trực quan và dễ triển khai front-end.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Kinh nghiệm & Dự án tiêu biểu</h2>
+
+          <div class="project">
+            <div class="title">Ứng dụng chia sẻ tài liệu sinh viên — Designer (2024)</div>
+            <p>Thiết kế flow, wireframe và prototype bằng Figma. Tối ưu luồng tìm kiếm và tải tài liệu, kết quả tăng 30% tương tác nhóm.</p>
+          </div>
+
+          <div class="project">
+            <div class="title">App nhắc nhở deadline học tập — UI/UX (2024)</div>
+            <p>Thiết kế giao diện mobile, hệ thống màu sắc, và dark/light mode. Thực hiện test người dùng & cải thiện UX cho các thông báo.</p>
+          </div>
+
+          <div class="project">
+            <div class="title">Landing page bán hàng (tự do)</div>
+            <p>Thiết kế layout, prototype và chuyển giao assets cho dev. Tối ưu CTA để tăng chuyển đổi.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Kỹ năng</h2>
+          <div class="skills-list">
+            <div class="chip">Figma</div>
+            <div class="chip">Adobe XD</div>
+            <div class="chip">Photoshop</div>
+            <div class="chip">HTML & CSS cơ bản</div>
+            <div class="chip">Wireframing</div>
+            <div class="chip">Prototyping</div>
+            <div class="chip">User Testing</div>
+            <div class="chip">Design System</div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Học vấn & Chứng chỉ</h2>
+          <p><strong>Đại học Lạc Hồng</strong> — Chuyên ngành: Thương mại điện tử / Hệ thống thông tin (2023 - nay)</p>
+          <ul style="margin-top:10px;">
+            <li>GPA: 3.5/4.0</li>
+            <li>Học bổng khuyến khích học tập HK1 (2024–2025)</li>
+            <li>Chứng chỉ: "Figma for Beginners" — Coursera (2025)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Ngôn ngữ & Hoạt động</h2>
+          <p>Tiếng Việt (Bản ngữ), Tiếng Anh (giao tiếp cơ bản). Thành viên CLB Sáng tạo & Thiết kế .</p>
+        </section>
+      </div>
+
+      <!-- ===== RIGHT / SIDEBAR ===== -->
+      <aside class="aside" aria-label="Thông tin phụ">
+        <div>
+          <h3>Thông tin liên hệ</h3>
+          <div class="meta">
+            <p><strong>Email:</strong> trannhatha1804@gmail.com</p>
+            <p><strong>Điện thoại:</strong> 0357 201 354</p>
+            <p><strong>LinkedIn:</strong> <a class="link" href="#" aria-label="LinkedIn">linkedin.com/in/trannhatha</a></p>
+            <p><strong>Behance:</strong> <a class="link" href="#" aria-label="Behance">behance.net/trannhatha</a></p>
+          </div>
+        </div>
+
+        <div style="margin-top:16px;">
+          <h3>Kỹ năng công cụ</h3>
+          <div class="tools-list" style="margin-top:8px;">
+            <div class="chip">Figma</div>
+            <div class="chip">Adobe XD</div>
+            <div class="chip">Photoshop</div>
+            <div class="chip">Illustrator</div>
+          </div>
+        </div>
+
+        <div style="margin-top:16px;">
+          <h3>Sở thích</h3>
+          <div class="hobby-list">
+            <div class="hobby-item"><span class="hobby-emoji">🎨</span> <span>Thiết kế sáng tạo & khám phá UI mới</span></div>
+            <div class="hobby-item"><span class="hobby-emoji">🏸</span> <span>Chơi cầu lông</span></div>
+            <div class="hobby-item"><span class="hobby-emoji">🎧</span> <span>Nghe nhạc lofi khi làm việc</span></div>
+            <div class="hobby-item"><span class="hobby-emoji">📸</span> <span>Chụp ảnh phong cảnh / đời sống</span></div>
+          </div>
+        </div>
+
+        <div style="margin-top:16px;">
+          <h3>Mục tiêu ngắn hạn</h3>
+          <p>Phát triển kỹ năng UX research, xây dựng design system và tham gia dự án sản phẩm có người dùng thực tế.</p>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      © 2025 Trần Nhật Hà — UX/UI Designer • Thiết kế bởi chính bạn 💛
+    </footer>
+  </div>
+
+  <!-- GHI CHÚ: Để thay ảnh cá nhân, thay giá trị src của <img class="avatar"> thành "avatar.jpg" nếu bạn lưu ảnh vào cùng thư mục -->
+</body>
+</html>
